@@ -30,7 +30,7 @@ fetchMyAgents
             elmt: "hr",
             content: "",
             className: "agents-header-divider"
-        })
+        });
         const agentsCardContainer = CreateElement({
             elmt: "div",
             className: "agents-card-container"

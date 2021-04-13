@@ -99,6 +99,8 @@ body {
 
 .hero nav .nav-links li a:hover {
   color: #fa4454;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
 }
 
 .hero .hero-section-wrapper {
