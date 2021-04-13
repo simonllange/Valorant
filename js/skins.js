@@ -33,8 +33,16 @@ fetchMySkins
       src: Data.data.displayIcon,
       className: "weapons-featured-image",
     });
-    weaponImage.appendChild(weaponSkinFeaturedImage);
     heroTekst.appendChild(weaponSkinName);
+    if (Data.data.shopData) {
+      const weaponCategory = CreateElement({
+        elmt: "h3",
+        content: Data.data.shopData.category,
+        className: "weapons-skins-category",
+      });
+      heroTekst.appendChild(weaponCategory);
+    }
+    weaponImage.appendChild(weaponSkinFeaturedImage);
   })
   .catch((error) => {
     console.log(error);
