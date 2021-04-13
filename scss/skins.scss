@@ -1,0 +1,147 @@
+@import "mixins";
+
+$valorant-red: #fa4454;
+$valorant-black: #212529;
+
+@font-face {
+  font-family: "Valorant";
+  src: url("../Valorant.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $valorant-black;
+  font-family: "Valorant";
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-30px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+.hero {
+  font-family: "Valorant";
+  width: 100%;
+  background-image: url("../images/skinbg.jpg");
+  height: 100vh;
+  background-size: cover;
+  z-index: 1;
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: relative;
+
+  nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    height: 10vh;
+
+    .logo {
+      color: white;
+      font-size: 36px;
+    }
+
+    .nav-links {
+      display: flex;
+      width: 50%;
+      justify-content: space-between;
+
+      li {
+        list-style: none;
+
+        a {
+          color: white;
+          text-decoration: none;
+          transition: 0.3s ease;
+          font-size: 18px;
+
+          &:hover {
+            color: $valorant-red;
+            transform: translateY(10px);
+          }
+        }
+      }
+    }
+  }
+
+  .hero-section-wrapper {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+
+    .hero-tekst {
+    
+      color: white;
+      letter-spacing: 1px;
+
+      h1 {
+        font-size: 60px;
+      }
+
+      h2 {
+        font-size: 52px;
+      }
+      p {
+        font-size: 20px;
+        padding: 20px 0;
+        padding-bottom: 40px;
+      }
+      .hero-btn {
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        border: 1.5px solid white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: 0.4s ease;
+
+        &:hover {
+          background-color: $valorant-red;
+          border: 1.5px solid $valorant-red;
+        }
+      }
+    }
+    .hero-api-logo img {
+      max-width: 100%;
+      width: 550px;
+      height: 100%;
+      overflow: hidden;
+      transform: translatey(0px);
+      animation: float 6s ease-in-out infinite;
+    }
+  }
+}
+
+ h1 {
+  color: white;
+ 
+}
+
+
+
+.weapons-featured-image {
+  width: 200px;
+  height: 100px;
+border-radius: 70px;
+padding: 30px;
+    -webkit-box-shadow: 0px 0px 23px 5px #f2e1f2;
+    -moz-box-shadow: 0px 0px 23px 5px #f2e1f275;
+    box-shadow: 0px 0px 23px 5px #f2e1f228; 
+    
+}
