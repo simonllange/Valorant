@@ -35,6 +35,45 @@ fetchMyWeapons
             elmt: "div",
             className: "weapons-card-container"
         });
+
+        Data.data.map((src) => {
+            const aTagWeapon = CreateElement({
+                elmt: "a",
+                src: `skins.html?id=${src.uuid}`
+            });
+            const cardsWeapons = CreateElement({
+                elmt: "div",
+                content: "",
+                className: "weapon-card"
+            });
+
+            const weaponImage = CreateElement({
+                elmt: "img",
+                src: src.displayIcon,
+                className: "weapon-card-image"
+            });
+            
+            const weaponName = CreateElement({
+                elmt: "h1",
+                content: src.displayName,
+                className: "weapon-card-name"
+            });
+            if(src.shopData) {
+            const weaponCategory = CreateElement({
+                elmt: "h4",
+                content: src.shopData.categoryText,
+                className: "weapon-category"
+            });
+        
+
+            
+                    cardsWeapons.appendChild(weaponCategory);
+            }
+            weaponsCardContainer.appendChild(aTagWeapon);
+                aTagWeapon.appendChild(cardsWeapons);
+                    cardsWeapons.appendChild(weaponImage)
+                    cardsWeapons.appendChild(weaponName);
+        })
         RootWeapons.appendChild(weaponsHeader);
         RootWeapons.appendChild(weaponsHeaderDivider);
         RootWeapons.appendChild(weaponsCardContainer);
