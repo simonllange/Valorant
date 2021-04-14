@@ -20,7 +20,7 @@ const fetchMySkins = new Promise((resolve, reject) => {
 
 fetchMySkins
   .then((Data) => {
-    console.log(Data);
+    //console.log(Data);
 
     const weaponSkinName = CreateElement({
       elmt: "h1",
@@ -33,7 +33,10 @@ fetchMySkins
       src: Data.data.displayIcon,
       className: "weapons-featured-image",
     });
+
+    const originalImage = Data.data.displayIcon;
     heroTekst.appendChild(weaponSkinName);
+    weaponSkinFeaturedImage.setAttribute("id", "mainImage");
     if (Data.data.shopData) {
       const weaponCategory = CreateElement({
         elmt: "h3",
@@ -42,8 +45,53 @@ fetchMySkins
       });
       heroTekst.appendChild(weaponCategory);
     }
+
+    Data.data.skins.map((src) => {
+      console.log(src);
+      const weaponSkinsContainer = CreateElement({
+        elmt: "div",
+        content: "",
+        className: "weapons-skins-container",
+      });
+
+      weaponSkinsContainer.addEventListener("click", changeImage);
+
+      const weaponSkinsName = CreateElement({
+        elmt: "h2",
+        content: src.displayName,
+        className: "weapons-skins-name",
+      });
+
+      skinsDiv.appendChild(weaponSkinsContainer);
+      weaponSkinsContainer.appendChild(weaponSkinsName);
+
+      if (src.displayIcon) {
+        const weaponSkinsImage = CreateElement({
+          elmt: "img",
+          src: src.displayIcon,
+          className: "weapons-skins-image",
+        });
+        weaponSkinsContainer.appendChild(weaponSkinsImage);
+      }
+    });
+
     weaponImage.appendChild(weaponSkinFeaturedImage);
   })
   .catch((error) => {
     console.log(error);
   });
+
+var changeImage = function () {
+  //var attribute = this.getAttribute("data-myattribute");
+  const image = this.children[1];
+  if (
+    image.src ==
+    "https://media.valorant-api.com/weaponskins/724a7f42-4315-eccf-0e76-77bdd3ec2e09/displayicon.png"
+  ) {
+    image.src =
+      "https://media.valorant-api.com/weapons/ae3de142-4d85-2547-dd26-4e90bed35cf7/displayicon.png";
+  }
+  mainImage.src = image.src;
+};
+
+console.log(originalImage);

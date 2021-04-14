@@ -145,3 +145,51 @@ padding: 30px;
     box-shadow: 0px 0px 23px 5px #f2e1f228; 
     
 }
+
+
+
+.Skins {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px;
+color: black;
+font-size: 10px;
+}
+
+
+.weapons-skins {
+ 
+
+
+  &-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+  padding: 20px;
+  border-radius: 5%;   
+  margin: 10px; 
+  min-height: 220px;
+  transition: 0.5s;
+  cursor: pointer;
+&:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+
+  }
+
+  &-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+
+
+
+
+}
+
