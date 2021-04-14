@@ -20,6 +20,10 @@
   background: #ff2d3e;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -331,5 +335,83 @@ body {
   background-color: #fa4454;
   color: #fa4454;
   margin-bottom: 80px;
+}
+
+#root-weapons .weapons-card-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-gap: 25px;
+}
+
+#root-weapons .weapons-card-container .weapon-link {
+  text-decoration: none;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card {
+  width: 400px;
+  font-family: "Valorant";
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 3px solid #fa4454;
+  position: relative;
+  border-radius: 8px;
+  padding: 20px;
+  -webkit-box-shadow: 3px 3px 22px 0px black;
+          box-shadow: 3px 3px 22px 0px black;
+  background-color: #1f1f1f;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  cursor: pointer;
+  height: 500px;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card .red {
+  color: #fd4556;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-card-name {
+  color: #fa4454;
+  font-size: 42px;
+  padding: 10px 0;
+  text-shadow: 2px 2px 10px #8d2727;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-category {
+  text-shadow: 2px 2px 10px #fa4454;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-cost,
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-firerate,
+#root-weapons .weapons-card-container .weapon-link .weapon-card .first-bullet-accuracy,
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-magazinesize,
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-reloadtime {
+  font-family: "Roboto", sans-serif;
+}
+
+#root-weapons .weapons-card-container .weapon-link .weapon-card .weapon-card-image {
+  max-width: 100%;
+  width: 300px;
 }
 /*# sourceMappingURL=style.css.map */

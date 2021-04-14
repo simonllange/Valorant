@@ -39,7 +39,8 @@ fetchMyWeapons
         Data.data.map((src) => {
             const aTagWeapon = CreateElement({
                 elmt: "a",
-                src: `skins.html?id=${src.uuid}`
+                src: `skins.html?id=${src.uuid}`,
+                className: "weapon-link"
             });
             const cardsWeapons = CreateElement({
                 elmt: "div",
@@ -58,21 +59,50 @@ fetchMyWeapons
                 content: src.displayName,
                 className: "weapon-card-name"
             });
-            if(src.shopData) {
+            if(src.shopData, src.weaponStats) {
             const weaponCategory = CreateElement({
                 elmt: "h4",
                 content: src.shopData.categoryText,
                 className: "weapon-category"
             });
-        
-
-            
+            const weaponCost = CreateElement({
+                elmt: "h4",
+                content: `<span class="red">Price:</span> ${src.shopData.cost}`,
+                className: "weapon-cost"
+            });
+            const weaponFireRate = CreateElement({
+                elmt: "p",
+                content: `<span class="red">Fire Rate:</span> ${src.weaponStats.fireRate}`,
+                className: "weapon-firerate"
+            });
+            const weaponFirstBulletAcc = CreateElement({
+                elmt: "p",
+                content: `<span class="red">First Bullet Accuracy:</span> ${src.weaponStats.firstBulletAccuracy}`,
+                className: "first-bullet-accuracy"
+            });
+            const weaponMagazineSize = CreateElement({
+                elmt: "p",
+                content: `<span class="red">Magazine Size:</span> ${src.weaponStats.magazineSize}`,
+                className: "weapon-magazinesize"
+            });
+            const weaponReloadTime = CreateElement({
+                elmt: "p",
+                content: `<span class="red">Reload Time in Seconds:</span> ${src.weaponStats.reloadTimeSeconds}`,
+                className: "weapon-reloadtime"
+            })
+                    cardsWeapons.appendChild(weaponName);
                     cardsWeapons.appendChild(weaponCategory);
+                    cardsWeapons.appendChild(weaponCost);
+                    cardsWeapons.appendChild(weaponFireRate);
+                    cardsWeapons.appendChild(weaponFirstBulletAcc);
+                    cardsWeapons.appendChild(weaponMagazineSize);
+                    cardsWeapons.appendChild(weaponReloadTime);
             }
+            cardsWeapons.appendChild(weaponImage);
             weaponsCardContainer.appendChild(aTagWeapon);
                 aTagWeapon.appendChild(cardsWeapons);
-                    cardsWeapons.appendChild(weaponImage)
-                    cardsWeapons.appendChild(weaponName);
+                
+
         })
         RootWeapons.appendChild(weaponsHeader);
         RootWeapons.appendChild(weaponsHeaderDivider);
